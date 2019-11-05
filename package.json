@@ -1,7 +1,7 @@
 {
-  "name": "disneyunitedway-mern",
+  "name": "shortcutz",
   "version": "1.0.0",
-  "description": "Disney United Way Cast Donation Portal",
+  "description": "ShortCutz Web App",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -10,13 +10,13 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Richard G. Scates",
+  "author": "Casey G. Beaulac & Jarrod D. Krasnoff",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
-    "concurrently": "^4.1.1",
+    "concurrently": "^4.1.2",
     "express": "^4.17.1",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
