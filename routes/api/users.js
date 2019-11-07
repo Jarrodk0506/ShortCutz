@@ -71,7 +71,6 @@ router.post('/login', (req, res) => {
 });
 
 router.get("/", (req, res) => {
-    console.log("api route back")
     User.find()
         .then(data => {res.json(data)})
         .catch(err => {console.log(err)});
