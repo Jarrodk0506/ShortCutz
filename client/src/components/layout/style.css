@@ -13,19 +13,55 @@ body{
 
 }
 .loginDD{
-    color: black;
+    color: rgb(156, 143, 143);
     width: 100vw;
     height: 100vh;
-    background-color: red;
+    background-color: white;
     /*background: rgba(255, 255, 255, 0.8);*/
     z-index: 100;
+    display: none;
 }
 .userlogin{
-    
+    color: black;
+    /* padding: 30px; */
+    margin-top: 150px;
     text-align: center;
-    border-bottom: black 2px solid;
+    border-right: black 2px solid;
+}
+.barberlogin{
+    color: black;
+    margin-top: 150px;
+    text-align: center;
+   
+}
+.registerDD{
+    color: rgb(156, 143, 143);
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 100;
+    display: block;
 }
 .userreg{
+    color: black;
+    margin-top: 150px;
     text-align: center;
-    border-bottom: black 2px solid;
+    border-right: black 2px solid;
+}
+.barberreg{
+    color: black;
+    margin-top: 150px;
+    text-align: center;
+   
+}
+
+.nav-wrapper{
+    border-bottom: black 3px solid;
+}
+nav a {
+    color: black;
+    font-size: xx-large;
+}
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: white;
 }

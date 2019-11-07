@@ -5,11 +5,19 @@ import './style.css';
 class Navbar extends Component {
 
     state = {
-        display : 0 
+        display : false 
     }
 
-   showDiv = e => {
+   showLoginDiv = e => {
     e.preventDefault();
+    this.setState({ display: true });
+
+
+   }
+
+   showRegDiv = e => {
+    e.preventDefault();
+    this.setState({ display: true });
 
 
    }
@@ -22,11 +30,11 @@ class Navbar extends Component {
                         <Link to="/" className="col s5 brand-logo center black-text" style={{ fontFamily: "monospace" }}>
                               ShortCutz 8&lt;
                         </Link>
-                        <Link to="/register" className="btn btn-large right btn-flat waves-effect white black-text regbtn">
+                        <div onClick={this.showRegDiv} className="btn btn-large right btn-flat waves-effect regbtn">
                                 Register
-                        </Link>
+                        </div>
 
-                        <div onClick={this.showDiv} className="btn btn-large right btn-flat waves-effect white black-text loginbtn">
+                        <div onClick={this.showLoginDiv} className="btn btn-large right btn-flat waves-effect loginbtn">
                                 Login
                             
                         
@@ -35,8 +43,15 @@ class Navbar extends Component {
                     </div>
                     <div className="loginDD">
                         <div className="row">
-                            <div className="col s6 userlogin"><Link to="/login">Login as User</Link> </div>
-                            <div className="col s6 barberlogin"><Link to="/loginb">Login as Barber</Link> </div>
+                            <div className="col s6 userlogin"><Link to="/login">Login as User    &rarr;</Link><p className="ulp">Browse a list of barber near you for a quick haircut or plan a future appointment.</p> </div>
+                            <div className="col s6 barberlogin"><Link to="/loginb">Login as Barber     &rarr;</Link><p className="blp">Manage your schedule, portfolio and preferences on your personnal profile page.</p> </div>
+
+                        </div>
+                        </div>
+                    <div className="registerDD">
+                        <div className="row">
+                            <div className="col s6 userreg"><Link to="/register">Register as User    &rarr;</Link><p className="ulp">Browse a list of barber near you for a quick haircut or plan a future appointment.</p> </div>
+                            <div className="col s6 barberreg"><Link to="/registerb">Register as Barber     &rarr;</Link><p className="blp">Manage your schedule, portfolio and preferences on your personnal profile page.</p> </div>
 
                         </div>
                         </div>
