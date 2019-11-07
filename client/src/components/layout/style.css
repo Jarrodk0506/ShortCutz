@@ -1,9 +1,31 @@
 body{
     background-image: url("barbershop.png");
+    background-repeat: no-repeat;
+    background-size: 1382px;
    
 }
 .textdiv{
     background-color: white;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
+}
+.loginbtn{
+
+}
+.loginDD{
+    color: black;
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    /*background: rgba(255, 255, 255, 0.8);*/
+    z-index: 100;
+}
+.userlogin{
+    
+    text-align: center;
+    border-bottom: black 2px solid;
+}
+.userreg{
+    text-align: center;
+    border-bottom: black 2px solid;
 }
