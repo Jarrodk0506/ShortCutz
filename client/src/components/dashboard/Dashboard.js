@@ -2,12 +2,31 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
+import API from "../../utils/API"
+import { List, ListItem } from "../List";
 import './style.css';
 
 class Dashboard extends Component {
+    state = {
+        foundUsers: []
+    }
+
     onLogoutClick = e => {
         e.preventDefault();
         this.props.logoutUser();
+    }
+
+    componentDidMount() {
+        this.getUser();
+    };
+
+    getUser = () => {
+        API.getUsers()
+            .then(data => {
+                this.setState({
+                    foundUsers: data.data
+                })
+            })
     }
 
     render() {
@@ -20,8 +39,17 @@ class Dashboard extends Component {
                         <h4>
                             <b>Welcome,</b> {user.name.split(" ")[0]}
                             <p className="flow-text grey-text text-darken-1">
-                                You are logged into a full-stack{" "} <span style={{ fontFamily: "monospace" }}>MERN</span> app
+                               Barbers Near You
                             </p>
+                            <List>
+                                {this.state.foundUsers.map(user => (
+                                    <ListItem key={user._id}>
+                                        <strong>
+                                            {user.name} {" "} <span style={{ fontFamily: "monospace" }}>is online</span> 
+                                        </strong>
+                                    </ListItem>
+                                ))}
+                            </List>
                         </h4>
                         <button className="btn btn-large waves-effect waves-light hoverable blue accent-3" style={{
                             width: "150px",

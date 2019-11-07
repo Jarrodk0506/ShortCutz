@@ -19,6 +19,7 @@ require('./config/passport')(passport);
 
 app.use('/api/users', users);
 
+
 app.listen(port, () => {
     console.log(`Server is listening at http://localhost:${port}`);
 });
