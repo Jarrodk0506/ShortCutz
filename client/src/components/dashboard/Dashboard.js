@@ -23,7 +23,6 @@ class Dashboard extends Component {
     getUser = () => {
         API.getUsers()
             .then(data => {
-                console.log(data);
                 this.setState({
                     foundUsers: data.data
                 })
@@ -40,13 +39,13 @@ class Dashboard extends Component {
                         <h4>
                             <b>Welcome,</b> {user.name.split(" ")[0]}
                             <p className="flow-text grey-text text-darken-1">
-                                You are logged into a full-stack{" "} <span style={{ fontFamily: "monospace" }}>MERN</span> app
+                               Barbers Near You
                             </p>
                             <List>
                                 {this.state.foundUsers.map(user => (
                                     <ListItem key={user._id}>
                                         <strong>
-                                            {user.name} 
+                                            {user.name} {" "} <span style={{ fontFamily: "monospace" }}>is online</span> 
                                         </strong>
                                     </ListItem>
                                 ))}
