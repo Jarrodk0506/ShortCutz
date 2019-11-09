@@ -10,7 +10,10 @@ body{
     border-radius: 20px;
 }
 .loginbtn{
-
+height: 100%;
+}
+.regbtn{
+height: 100%;
 }
 .loginDD{
     color: rgb(156, 143, 143);
@@ -19,18 +22,28 @@ body{
     background-color: white;
     /*background: rgba(255, 255, 255, 0.8);*/
     z-index: 100;
+    /* display: none; */
+    
+}
+.xbtn{
+    float: right;
+    font-size: 30px;
+    padding-right:50px ;
+    color: black;
+}
+.hidediv{
     display: none;
 }
 .userlogin{
     color: black;
     /* padding: 30px; */
-    margin-top: 150px;
+    margin-top: 30px;
     text-align: center;
     border-right: black 2px solid;
 }
 .barberlogin{
     color: black;
-    margin-top: 150px;
+    margin-top: 50px;
     text-align: center;
    
 }
@@ -40,13 +53,14 @@ body{
     height: 100vh;
     background-color: white;
     z-index: 100;
-    display: block;
+    display: none;
 }
 .userreg{
     color: black;
     margin-top: 150px;
     text-align: center;
     border-right: black 2px solid;
+    
 }
 .barberreg{
     color: black;
