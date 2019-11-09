@@ -60,9 +60,12 @@ class Navbar extends Component {
                         <div className="col s12"><p onClick={this.hideLoginDiv} className={this.state.displayLogin ? "xbtn": "hidediv xbtn"}>&#10006;</p></div>
                     </div>
                         <div className="row">
-                            <div onClick={this.hideLoginDiv} className="col s6 userlogin"><Link to="/login"><i className='fas fa-user' style={{fontSize:"24px"}}></i> Login as User    &rarr;</Link><p className="ulp">Browse a list of barber near you for a quick haircut or plan a future appointment.</p> </div>
-                            <div onClick={this.hideLoginDiv} className="col s6 barberlogin"><Link to="/loginb"> &#9986; Login as Barber     &rarr;</Link><p className="blp">Manage your schedule, portfolio and preferences on your personnal profile page.</p> </div>
-
+                            <div onClick={this.hideLoginDiv} className="col s6 userlogin"><Link to={{
+                                pathname:"/login",
+                                state: {barber:false} }}><i className='fas fa-user' style={{fontSize:"24px"}}></i>Login as User    &rarr;</Link><p className="ulp">Browse a list of barber near you for a quick haircut or plan a future appointment.</p> </div>
+                            <div onClick={this.hideLoginDiv}  className="col s6 barberlogin"><Link to={{
+                                pathname:"/login",
+                                state: {barber:true} }}> &#9986; Login as Barber     &rarr;</Link><p className="blp">Manage your schedule, portfolio and preferences on your personnal profile page.</p> </div>
                         </div>
                         </div>
                     <div className={this.state.displayRegister ? "registerDD": "hidediv registerDD"}>

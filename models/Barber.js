@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const BarberSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -17,13 +17,8 @@ const UserSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
-    },
-    barber: {
-        type: Boolean,
-        required: true,
-        default: false
     }
 });
-var User = mongoose.model("User", UserSchema);
+var Barber = mongoose.model("Barber", BarberSchema);
 
-module.exports = User;
+module.exports = Barber;
