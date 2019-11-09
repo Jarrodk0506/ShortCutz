@@ -61,7 +61,7 @@ class Navbar extends Component {
                     </div>
                         <div className="row">
                             <div onClick={this.hideLoginDiv} className="col s6 userlogin"><Link to="/login"><i className='fas fa-user' style={{fontSize:"24px"}}></i> Login as User    &rarr;</Link><p className="ulp">Browse a list of barber near you for a quick haircut or plan a future appointment.</p> </div>
-                            <div className="col s6 barberlogin"><Link to="/loginb"> &#9986; Login as Barber     &rarr;</Link><p className="blp">Manage your schedule, portfolio and preferences on your personnal profile page.</p> </div>
+                            <div onClick={this.hideLoginDiv} className="col s6 barberlogin"><Link to="/loginb"> &#9986; Login as Barber     &rarr;</Link><p className="blp">Manage your schedule, portfolio and preferences on your personnal profile page.</p> </div>
 
                         </div>
                         </div>
@@ -71,7 +71,7 @@ class Navbar extends Component {
                     </div>
                         <div className="row">
                             <div onClick={this.hideRegDiv} className="col s6 userreg"><Link to="/register"><i className='fas fa-user' style={{fontSize:"24px"}}></i> Register as User    &rarr;</Link><p className="urp">Browse a list of barber near you for a quick haircut or plan a future appointment.</p> </div>
-                            <div className="col s6 barberreg"><Link to="/registerb">&#9986; Register as Barber     &rarr;</Link><p className="brp">Manage your schedule, portfolio and preferences on your personnal profile page.</p> </div>
+                            <div onClick={this.hideRegDiv} className="col s6 barberreg"><Link to="/registerb">&#9986; Register as Barber     &rarr;</Link><p className="brp">Manage your schedule, portfolio and preferences on your personnal profile page.</p> </div>
 
                         </div>
                         </div>
