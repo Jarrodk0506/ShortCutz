@@ -58,7 +58,7 @@ class Login extends Component {
                         </Link>
                         <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                             <h4>
-                               User <b>Login</b>
+                            <i className='fas fa-user' style={{fontSize:"24px"}}></i> User <b>Login</b>
                             </h4>
                             <p className="text-darken-1">
                                 Don't have an account? <Link to="/register" style={{color: "#6E3A2E"}}>Register</Link>
