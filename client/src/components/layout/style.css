@@ -31,6 +31,10 @@ height: 100%;
     padding-right:50px ;
     color: black;
 }
+.xbtn:hover{
+    color: #5a5a5a;
+    cursor:pointer;
+}
 .hidediv{
     display: none;
 }
@@ -43,7 +47,7 @@ height: 100%;
 }
 .barberlogin{
     color: black;
-    margin-top: 50px;
+    margin-top: 30px;
     text-align: center;
    
 }
@@ -53,18 +57,18 @@ height: 100%;
     height: 100vh;
     background-color: white;
     z-index: 100;
-    display: none;
+    /* display: none; */
 }
 .userreg{
     color: black;
-    margin-top: 150px;
+    margin-top: 30px;
     text-align: center;
     border-right: black 2px solid;
     
 }
 .barberreg{
     color: black;
-    margin-top: 150px;
+    margin-top: 30px;
     text-align: center;
    
 }
