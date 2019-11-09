@@ -51,11 +51,12 @@ class Dashboard extends Component {
                                 ))}
                             </List>
                         </h4>
-                        <button className="btn btn-large waves-effect waves-light hoverable blue accent-3" style={{
+                        <button className="btn btn-large waves-effect waves-light hoverable" style={{
                             width: "150px",
                             borderRadius: "3px",
                             letterSpacing: "1.5px",
-                            marginTop: "1rem"
+                            marginTop: "1rem",
+                            backgroundColor: "#6E3A2E"
                         }} onClick={this.onLogoutClick}>
                             Logout
                         </button>
