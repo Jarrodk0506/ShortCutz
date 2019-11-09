@@ -26,11 +26,13 @@ export const setErrors = err => {
 export const registerUser = (userData, history) => dispatch => {
     axios.post('/api/users/register', userData).then(res => history.push("/login")).catch(err => dispatch(setErrors(err)));
 };
+//Update history.push to also include state with barber status. Example: login.js/line 30
 
 export const loginUser = userData => dispatch => {
+    console.log(userData);
     axios.post('/api/users/login', userData).then(res => {
-        const { token } = res.data;
-        
+        const token = res.data.token;
+
         localStorage.setItem("jwtToken", token);
         setAuthToken(token);
 

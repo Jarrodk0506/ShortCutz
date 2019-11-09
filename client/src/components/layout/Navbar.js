@@ -49,8 +49,12 @@ class Navbar extends Component {
 
                     </div>
                         <div className="row">
-                            <div className="col s6 userlogin"><Link to="/login">Login as User    &rarr;</Link><p className="ulp">Browse a list of barber near you for a quick haircut or plan a future appointment.</p> </div>
-                            <div className="col s6 barberlogin"><Link to="/loginb"> &#9986; Login as Barber     &rarr;</Link><p className="blp">Manage your schedule, portfolio and preferences on your personnal profile page.</p> </div>
+                            <div className="col s6 userlogin"><Link to={{
+                                pathname:"/login",
+                                state: {barber:false} }}>Login as User    &rarr;</Link><p className="ulp">Browse a list of barber near you for a quick haircut or plan a future appointment.</p> </div>
+                            <div className="col s6 barberlogin"><Link to={{
+                                pathname:"/login",
+                                state: {barber:true} }}> &#9986; Login as Barber     &rarr;</Link><p className="blp">Manage your schedule, portfolio and preferences on your personnal profile page.</p> </div>
 
                         </div>
                         </div>
