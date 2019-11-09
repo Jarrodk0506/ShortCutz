@@ -12,37 +12,39 @@ class Login extends Component {
         this.state = {
             email: "",
             password: "",
-            barber:"",
+            barber: "",
             errors: {}
         };
     }
 
     componentDidMount() {
-        if (this.props.location.state) 
-        {this.setState({
-            barber: this.props.location.state.barber
-        });
+        if (this.props.location.state) {
+            this.setState({
+                barber: this.props.location.state.barber
+            });
         }
-        if(this.props.auth.isAuthenticated) this.props.history.push("/dashboard"); //update history.push to include state thats barber status
+        if (this.props.auth.isAuthenticated) this.props.history.push("/dashboard"); //update history.push to include state thats barber status
     }
 
     componentWillReceiveProps(nextProps) {
         console.log(nextProps.auth.user);
-        if(nextProps.auth.isAuthenticated && nextProps.auth.user.barber){
+        if (nextProps.auth.isAuthenticated && nextProps.auth.user.barber) {
             this.props.history.push({
                 pathname: "/dashboard",
-            state: {
-                barber: true
-            }}); 
+                state: {
+                    barber: true
+                }
+            });
         } else if (nextProps.auth.isAuthenticated && !nextProps.auth.user.barber) {
             this.props.history.push({
                 pathname: "/dashboard",
-            state: {
-                barber: false
-            }}); 
+                state: {
+                    barber: false
+                }
+            });
         }
 
-        if(nextProps.errors){
+        if (nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
             });
@@ -78,10 +80,10 @@ class Login extends Component {
                         </Link>
                         <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                             <h4>
-                              {this.state.barber ? "Barber" : "User"} <b>Login</b>
+                                <i className='fas fa-user' style={{ fontSize: "24px" }}>{this.state.barber ? "Barber" : "User"}</i> <b>Login</b>
                             </h4>
                             <p className="text-darken-1">
-                                Don't have an account? <Link to="/register" style={{color: "#6E3A2E"}}>Register</Link>
+                                Don't have an account? <Link to="/register" style={{ color: "#6E3A2E" }}>Register</Link>
                             </p>
                         </div>
                         <form noValidate onSubmit={this.onSubmit}>
