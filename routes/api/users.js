@@ -18,14 +18,16 @@ router.post('/register', (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
+    const barber = req.body.barber;
 
-    User.findOne({ email }).then(user => {
+    User.findOne({ email, barber }).then(user => {
         if (user) return res.status(400).json({ email: "Email already exists" });
 
         const newUser = new User({
             name,
             email,
-            password
+            password,
+            barber
         });
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -46,24 +48,26 @@ router.post('/login', (req, res) => {
 
     const email = req.body.email;
     const password = req.body.password;
+    const barber = req.body.barber;
 
-    User.findOne({ email }).then(user => {
+    User.findOne({ email, barber }).then(user => {
         if (!user) return res.status(404).json({ emailnotfound: "Email not found" });
 
         bcrypt.compare(password, user.password).then(isMatch => {
             if (!isMatch) return res.status(400).json({ passwordincorrect: "Password incorrect" });
-
+            console.log(user);
+            console.log("barber", user.barber);
             const payload = {
                 id: user.id,
-                name: user.name
+                name: user.name,
+                barber: user.barber
             };
 
             jwt.sign(payload, keys.cypher, { expiresIn: 31556926 }, (err, token) => {
                 if (err) return res.status(400).json({ tokenerror: "There was a problem updating your security token" });
-
                 res.json({
                     success: true,
-                    token: "Bearer " + token
+                    token: "Bearer " + token,
                 });
             });
         });

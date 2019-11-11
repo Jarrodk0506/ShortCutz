@@ -12,18 +12,39 @@ class Login extends Component {
         this.state = {
             email: "",
             password: "",
+            barber: "",
             errors: {}
         };
     }
 
     componentDidMount() {
-        if(this.props.auth.isAuthenticated) this.props.history.push("/dashboard");
+        if (this.props.location.state) {
+            this.setState({
+                barber: this.props.location.state.barber
+            });
+        }
+        if (this.props.auth.isAuthenticated) this.props.history.push("/dashboard"); //update history.push to include state thats barber status
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.auth.isAuthenticated) this.props.history.push("/dashboard");
+        console.log(nextProps.auth.user);
+        if (nextProps.auth.isAuthenticated && nextProps.auth.user.barber) {
+            this.props.history.push({
+                pathname: "/dashboard",
+                state: {
+                    barber: true
+                }
+            });
+        } else if (nextProps.auth.isAuthenticated && !nextProps.auth.user.barber) {
+            this.props.history.push({
+                pathname: "/dashboard",
+                state: {
+                    barber: false
+                }
+            });
+        }
 
-        if(nextProps.errors){
+        if (nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
             });
@@ -40,6 +61,7 @@ class Login extends Component {
         const userData = {
             email: this.state.email,
             password: this.state.password,
+            barber: this.state.barber
         };
 
         // console.log(userData);
@@ -58,10 +80,10 @@ class Login extends Component {
                         </Link>
                         <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                             <h4>
-                                <b>Login</b> below
+                                <i className='fas fa-user' style={{ fontSize: "24px" }}>{this.state.barber ? "Barber" : "User"}</i> <b>Login</b>
                             </h4>
                             <p className="text-darken-1">
-                                Don't have an account? <Link to="/register">Register</Link>
+                                Don't have an account? <Link to="/register" style={{ color: "#6E3A2E" }}>Register</Link>
                             </p>
                         </div>
                         <form noValidate onSubmit={this.onSubmit}>
@@ -82,11 +104,13 @@ class Login extends Component {
                                 </span>
                             </div>
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                                <button className="btn btn-large waves-effect waves-light hoverable blue accent-3" style={{
+                                <button className="btn btn-large waves-effect waves-light hoverable" style={{
                                     width: "150px",
                                     borderRadius: "3px",
                                     letterSpacing: "1.5px",
-                                    marginTop: "1rem"
+                                    marginTop: "1rem",
+                                    marginBottom: "1rem",
+                                    backgroundColor: "#6E3A2E"
                                 }} type="submit">
                                     Login
                                 </button>

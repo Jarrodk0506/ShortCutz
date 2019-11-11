@@ -8,7 +8,8 @@ import './style.css';
 
 class Dashboard extends Component {
     state = {
-        foundUsers: []
+        foundUsers: [],
+        barber: false
     }
 
     onLogoutClick = e => {
@@ -17,6 +18,9 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
+        this.setState({
+            barber: this.props.location.state.barber
+        });
         this.getUser();
     };
 
@@ -39,7 +43,7 @@ class Dashboard extends Component {
                         <h4>
                             <b>Welcome,</b> {user.name.split(" ")[0]}
                             <p className="flow-text grey-text text-darken-1">
-                               Barbers Near You
+                               {this.state.barber ? "Go online?" : "Barbers Near You"}
                             </p>
                             <List>
                                 {this.state.foundUsers.map(user => (
@@ -51,11 +55,12 @@ class Dashboard extends Component {
                                 ))}
                             </List>
                         </h4>
-                        <button className="btn btn-large waves-effect waves-light hoverable blue accent-3" style={{
+                        <button className="btn btn-large waves-effect waves-light hoverable" style={{
                             width: "150px",
                             borderRadius: "3px",
                             letterSpacing: "1.5px",
-                            marginTop: "1rem"
+                            marginTop: "1rem",
+                            backgroundColor: "#6E3A2E"
                         }} onClick={this.onLogoutClick}>
                             Logout
                         </button>
