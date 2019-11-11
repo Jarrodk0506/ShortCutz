@@ -29,7 +29,7 @@ class Register extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        // if (nextProps.auth.isAuthenticated) this.props.history.push("/dashboard");
+        
         if (nextProps.auth.isAuthenticated && nextProps.auth.user.barber) {
             this.props.history.push({
                 pathname: "/dashboard",
@@ -57,12 +57,15 @@ class Register extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
+
+    
     onSubmit = e => {
         e.preventDefault();
 
         const newUser = {
             name: this.state.name,
             email: this.state.email,
+            barber: this.state.barber,
             password: this.state.password,
             password2: this.state.password2
         };
