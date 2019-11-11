@@ -14,18 +14,39 @@ class Register extends Component {
             email: "",
             password: "",
             password2: "",
+            barber: "",
             errors: {}
         };
     }
 
     componentDidMount() {
-        if(this.props.auth.isAuthenticated) this.props.history.push("/dashboard");
+        if (this.props.location.state) {
+            this.setState({
+                barber: this.props.location.state.barber
+            });
+        }
+        if (this.props.auth.isAuthenticated) this.props.history.push("/dashboard");
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.auth.isAuthenticated) this.props.history.push("/dashboard");
-        
-        if(nextProps.errors){
+        // if (nextProps.auth.isAuthenticated) this.props.history.push("/dashboard");
+        if (nextProps.auth.isAuthenticated && nextProps.auth.user.barber) {
+            this.props.history.push({
+                pathname: "/dashboard",
+                state: {
+                    barber: true
+                }
+            });
+        } else if (nextProps.auth.isAuthenticated && !nextProps.auth.user.barber) {
+            this.props.history.push({
+                pathname: "/dashboard",
+                state: {
+                    barber: false
+                }
+            });
+        }
+
+        if (nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
             });
@@ -62,10 +83,10 @@ class Register extends Component {
                         </Link>
                         <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                             <h4>
-                                User <b>Register</b>
+                                {this.state.barber ? "Barber" : "User"} <b>Register</b>
                             </h4>
                             <p className="grey-text text-darken-1">
-                                Already have an account? <Link to="/login" style={{color: "#6E3A2E"}}>Login</Link>
+                                Already have an account? <Link to="/login" style={{ color: "#6E3A2E" }}>Login</Link>
                             </p>
                         </div>
                         <form noValidate onSubmit={this.onSubmit}>
