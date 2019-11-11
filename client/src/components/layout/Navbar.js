@@ -64,7 +64,7 @@ class Navbar extends Component {
                                 pathname:"/login",
                                 state: {barber:false} }}><i className='fas fa-user' style={{fontSize:"24px"}}></i>Login as User    &rarr;</Link><p className="ulp">Browse a list of barber near you for a quick haircut or plan a future appointment.</p> </div>
                             <div onClick={this.hideLoginDiv}  className="col s6 barberlogin"><Link to={{
-                                pathname:"/login",
+                                pathname:"/loginb",
                                 state: {barber:true} }}> &#9986; Login as Barber     &rarr;</Link><p className="blp">Manage your schedule, portfolio and preferences on your personnal profile page.</p> </div>
                         </div>
                         </div>
@@ -73,8 +73,12 @@ class Navbar extends Component {
                         <div className="col s12"><p onClick={this.hideRegDiv} className={this.state.displayRegister ? "xbtn": "hidediv xbtn"}>&#10006;</p></div>
                     </div>
                         <div className="row">
-                            <div onClick={this.hideRegDiv} className="col s6 userreg"><Link to="/register"><i className='fas fa-user' style={{fontSize:"24px"}}></i> Register as User    &rarr;</Link><p className="urp">Create an account to browse from our collection of barbers.</p> </div>
-                            <div onClick={this.hideRegDiv} className="col s6 barberreg"><Link to="/registerb">&#9986; Register as Barber     &rarr;</Link><p className="brp">Sign up and start booking appointments today.</p> </div>
+                            <div onClick={this.hideRegDiv} className="col s6 userreg"><Link to={{
+                                pathname:"/register",
+                                state: {barber:false} }}> <i className='fas fa-user' style={{fontSize:"24px"}}></i> Register as User    &rarr;</Link><p className="urp">Create an account to browse from our collection of barbers.</p> </div>
+                            <div onClick={this.hideRegDiv} className="col s6 barberreg"><Link to={{
+                                pathname:"/registerb",
+                                state: {barber:true} }}> &#9986; Register as Barber     &rarr;</Link><p className="brp">Sign up and start booking appointments today.</p> </div>
 
                         </div>
                         </div>
