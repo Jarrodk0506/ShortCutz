@@ -9,7 +9,7 @@ import './style.css';
 class Dashboard extends Component {
     state = {
         foundUsers: [],
-        barber: false
+        barber: ""
     }
 
     onLogoutClick = e => {
