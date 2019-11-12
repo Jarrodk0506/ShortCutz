@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import API from "../../utils/API"
+import Footer from "../layout/Footer"
 import { List, ListItem } from "../List";
 import './style.css';
 
@@ -45,6 +46,9 @@ class Dashboard extends Component {
                             <p className="flow-text grey-text text-darken-1">
                                {this.state.barber ? "Go online?" : "Barbers Near You"}
                             </p>
+                            <Footer>
+
+                            </Footer>
                             <List>
                                 {this.state.foundUsers.map(user => (
                                     <ListItem key={user._id}>
