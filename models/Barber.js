@@ -17,6 +17,11 @@ const BarberSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    barber: {
+        type: Boolean,
+        required: true,
+        default: true
     }
 });
 var Barber = mongoose.model("Barber", BarberSchema);
