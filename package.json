@@ -10,7 +10,10 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "engines": {
+      "node": "10.15.3"
+    }
   },
   "author": "Casey G. Beaulac & Jarrod D. Krasnoff",
   "license": "ISC",
