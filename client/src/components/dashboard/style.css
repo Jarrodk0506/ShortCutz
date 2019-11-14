@@ -34,12 +34,14 @@
     margin-top: 20px;
     margin-left: 20px;
 }
+.barberDiv{
+   
+}
 .portfolioDiv{
- 
     background-color: white;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
-    width: 80%;
+ 
 }
 .portfolioImg{
     margin:20px;
