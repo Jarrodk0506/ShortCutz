@@ -10,13 +10,11 @@ class Footer extends Component {
 
     goOnline = e =>{
         if(!this.state.online){
-            console.log("online set true")
             this.setState({
                 online: true,
                 bgColor: "green"
             });
         } else {
-            console.log("online set false")
             this.setState({
                 online: false,
                 bgColor: "white"
