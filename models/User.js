@@ -18,6 +18,11 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    online: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
     barber: {
         type: Boolean,
         required: true,
