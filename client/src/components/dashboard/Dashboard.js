@@ -54,7 +54,7 @@ class Dashboard extends Component {
                             {this.state.foundUsers.map(user => (
                                 <ListItem key={user._id}>
                                     <strong>
-                                        {user.name} {" "} <span style={{ fontFamily: "monospace" }}>is online</span> 
+                                        {user.name} {" "} <span style={{ fontFamily: "monospace" }}> is online </span> 
                                     </strong>
                                 </ListItem>
                             ))}
@@ -102,7 +102,7 @@ class Dashboard extends Component {
                     <img className="portfolioImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2qcJkr_1VRs0Z2dQPZh3sGzrwutYS6Zftydcsorcf-prQp3DNXg&s" alt="profile picture"></img>
                     <img className="portfolioImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0YeiUrsN4L4hHci4cNiYDUbjsawb6k0tL88oomOna5EtNaFi9&s" alt="profile picture"></img>
                     <img className="portfolioImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5fEALZExRyQw8ZirYhnN8lDIBbXEbmSsIu4D6vOcY7PeOqmw_KA&s" alt="profile picture"></img>
-                    <img className="portfolioImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyj3Ox4QgoKA2QmretK9Vjz4hUP_u9qr5oSeE45cwvU54Mtk_B&s"></img>
+                    <img className="portfolioImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyj3Ox4QgoKA2QmretK9Vjz4hUP_u9qr5oSeE45cwvU54Mtk_B&s" alt="profile picture"></img>
 
                     </div>
                     </div>

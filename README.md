@@ -1,4 +1,7 @@
-# mern-passport-app
-Starter MERN application with Passport user authentication using Javascript Web Tokens and Redux
+#ShortCutz
 
-Built following the tutorial at https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669 with slight variations added by me
+Welcome to ShortCutz, The quick and easy way to get a haircut in the comfort of your own home.
+Sign up, Find a barber who cuts in the style you like, then book them for an appointment, it's that easy!
+
+For Barbers networking and building a clientel was never easier. Your clients that like the way YOU cut will come to YOU. 
+No more paying for a chair in a barbershop. Make you're own schedule and work on your time. 
