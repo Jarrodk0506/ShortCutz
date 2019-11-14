@@ -10,6 +10,7 @@ import './style.css';
 class Dashboard extends Component {
     state = {
         foundUsers: [],
+        online: false,
         barber: false
     }
 

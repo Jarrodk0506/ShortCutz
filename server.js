@@ -11,8 +11,11 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/shortcutzdb";
+
 const db = require("./config/keys").mongoURI;
-mongoose.connect(db, { useNewUrlParser: true }).then(() => console.log("MongoDB connected")).catch((err) => console.log(err));
+//replaced db with MONGODB_URI -- test--
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true }).then(() => console.log("MongoDB connected")).catch((err) => console.log(err));
 
 app.use(passport.initialize());
 require('./config/passport')(passport);

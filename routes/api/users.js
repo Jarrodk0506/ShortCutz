@@ -9,7 +9,6 @@ const validateLoginInput = require('../../validation/login');
 
 
 const User = require('../../models/User');
-const Barber = require('../../models/Barber');
 
 //Registration for users
 router.post('/register', (req, res) => {
@@ -20,6 +19,7 @@ router.post('/register', (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
+    const online = req.body.online;
     const barber = req.body.barber;
 
     User.findOne({ email, barber }).then(user => {
@@ -29,6 +29,7 @@ router.post('/register', (req, res) => {
             name,
             email,
             password,
+            online,
             barber
         });
 
@@ -143,7 +144,8 @@ router.post('/loginb', (req, res) => {
 
 // get users in the database with barber:true status to display on the dashboard for users.
 router.get("/", (req, res) => {
-    const query = { barber : true};
+    const query = {barber : true, online: true};
+    
     User.find(query)
         .then(data => { res.json(data) })
         .catch(err => { console.log(err) });
