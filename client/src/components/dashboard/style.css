@@ -4,3 +4,46 @@
     border-radius: 20px;
     width: 50%;
 }
+.userDiv{
+    display: block;
+}
+
+.barberDiv{
+    display: block;
+}
+
+/* .hideDiv{
+    display: none;
+} */
+.profileDiv{
+    background-color: white;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+}
+.profileName{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.profileImg{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 75px;
+}
+.profileAbout{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.portfolioDiv{
+ 
+    background-color: white;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    width: 80%;
+}
+.portfolioImg{
+    margin:20px;
+    width: 140px;
+    height: 140px;
+    border: black solid 2px;
+}
