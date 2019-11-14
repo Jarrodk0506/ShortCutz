@@ -11,7 +11,7 @@ class Dashboard extends Component {
     state = {
         foundUsers: [],
         online: false,
-        barber: ""
+        barber: false
     }
 
     onLogoutClick = e => {
