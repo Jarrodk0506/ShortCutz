@@ -144,7 +144,8 @@ router.post('/loginb', (req, res) => {
 
 // get users in the database with barber:true status to display on the dashboard for users.
 router.get("/", (req, res) => {
-    const query = { barber : true};
+    const query = {barber : true, online: true};
+    
     User.find(query)
         .then(data => { res.json(data) })
         .catch(err => { console.log(err) });
