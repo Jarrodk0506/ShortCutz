@@ -13,6 +13,7 @@ class Login extends Component {
             email: "",
             password: "",
             barber: "",
+            online: false,
             errors: {}
         };
     }
