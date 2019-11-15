@@ -11,7 +11,7 @@ class Dashboard extends Component {
     state = {
         foundUsers: [],
         online: false,
-        barber: false
+        barber: ""
     }
 
     onLogoutClick = e => {
@@ -20,10 +20,18 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
+
+    if(this.props.location.state.barber === true){
         this.setState({
             barber: this.props.location.state.barber
         });
         this.getUser();
+        } else {
+            this.setState({
+                barber : false
+            });
+            this.getUser();
+        }
     };
 
     getUser = () => {
