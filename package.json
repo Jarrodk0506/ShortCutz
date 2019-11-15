@@ -4,16 +4,11 @@
   "description": "ShortCutz Web App",
   "main": "server.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
-  },
-  "engines": {
-    "node": "10.15.3"
+    "client": "npm start --prefix client",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Casey G. Beaulac & Jarrod D. Krasnoff",
   "license": "ISC",
@@ -29,7 +24,6 @@
     "mongoose": "^5.6.4",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "react-router": "^5.1.2",
     "validator": "^11.1.0"
   },
   "devDependencies": {
