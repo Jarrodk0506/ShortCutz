@@ -28,6 +28,8 @@ export const registerUser = (userData, history) => dispatch => {
 };
 //Update history.push to also include state with barber status. Example: login.js/line 30
 
+//Make update online status axios.post request//
+
 export const loginUser = userData => dispatch => {
     console.log(userData);
     axios.post('/api/users/login', userData).then(res => {
