@@ -151,4 +151,15 @@ router.get("/", (req, res) => {
         .catch(err => { console.log(err) });
 });
 
+//making post route for changing online status
+router.post("/dashboard", (req, res) => {
+
+    const online = req.body.online;
+    console.log("this is the check" + online);
+
+    User.update({ _id: req.params.id },{"$set":{"online":online}})
+  .then(dbModel => res.json(dbModel))
+  .catch(err => res.status(422).json(err));
+});
+
 module.exports = router;
