@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
+  // Gets all Users
   getUsers: function() {
     return axios.get("/api/users");
   }
