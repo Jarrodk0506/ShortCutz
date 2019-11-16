@@ -55,10 +55,10 @@ router.post('/registerb', (req, res) => {
     const password = req.body.password;
     const barber = req.body.barber;
 
-    Barber.findOne({ email, barber }).then(barber => {
-        if (barber) return res.status(400).json({ email: "Email already exists" });
+    User.findOne({ email, barber }).then(user => {
+        if (user) return res.status(400).json({ email: "Email already exists" });
 
-        const newBarber = new Barber({
+        const newUser = new User({
             name,
             email,
             password,
@@ -66,11 +66,11 @@ router.post('/registerb', (req, res) => {
         });
 
         bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(newBarber.password, salt, (err, hash) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
                 if (err) throw err;
 
-                newBarber.password = hash;
-                newBarber.save().then(barber => res.json(barber)).catch(err => console.log(err));
+                newUser.password = hash;
+                newUser.save().then(user => res.json(user)).catch(err => console.log(err));
             });
         });
     });
@@ -92,12 +92,14 @@ router.post('/login', (req, res) => {
         bcrypt.compare(password, user.password).then(isMatch => {
             if (!isMatch) return res.status(400).json({ passwordincorrect: "Password incorrect" });
 
+            
             const payload = {
                 id: user.id,
                 name: user.name,
                 barber: user.barber
             };
 
+            console.log("this" + payload);
             jwt.sign(payload, keys.cypher, { expiresIn: 31556926 }, (err, token) => {
                 if (err) return res.status(400).json({ tokenerror: "There was a problem updating your security token" });
                 res.json({
@@ -119,16 +121,16 @@ router.post('/loginb', (req, res) => {
     const password = req.body.password;
     const barber = req.body.barber;
 
-    Barber.findOne({ email, barber }).then(barber => {
-        if (!barber) return res.status(404).json({ emailnotfound: "Email not found" });
+    User.findOne({ email, barber }).then(user => {
+        if (!user) return res.status(404).json({ emailnotfound: "Email not found" });
 
-        bcrypt.compare(password, barber.password).then(isMatch => {
+        bcrypt.compare(password, user.password).then(isMatch => {
             if (!isMatch) return res.status(400).json({ passwordincorrect: "Password incorrect" });
 
             const payload = {
-                id: barber.id,
-                name: barber.name,
-                barber: barber.barber
+                id: user.id,
+                name: user.name,
+                barber: user.barber
             };
 
             jwt.sign(payload, keys.cypher, { expiresIn: 31556926 }, (err, token) => {
